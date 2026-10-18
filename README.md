@@ -91,3 +91,12 @@ erDiagram
         string Soyad
         int Servis_ID FK
     }
+```
+
+## 📂 Proje İçeriği
+* `schema.sql`: Belirtilen kurallara uygun olarak Primary Key (Birincil Anahtar) ve Foreign Key (Yabancı Anahtar) kısıtlamalarının tanımlandığı ve ara tabloların (Muayene, Hasta_Tahlil) bulunduğu veri tabanı oluşturma betiği.
+
+## 👥 Proje Ekibi
+Bu proje, veri tabanı projesi ödevi kapsamında aşağıdaki ekip tarafından geliştirilmiştir:
+* **Oğuzhan Akkuş** - 455089
+* **Furkan Ağır** - 455085
