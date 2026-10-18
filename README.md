@@ -28,69 +28,7 @@ Veritabanı şeması aşağıdaki iş kuralları (business rules) baz alınarak 
 Bu proje, aşağıdaki ekip üyeleri tarafından tasarlanmış ve geliştirilmiştir:
 * **Oğuzhan Akkuş** - 455089
 * **Furkan Ağır** - 455085
-erDiagram
-    POLIKLINIK ||--o{ MUAYENE : "sahiptir"
-    HASTA ||--o{ MUAYENE : "yaptırır"
 
-    POLIKLINIK ||--o{ DOKTOR : "çalıştırır"
-    POLIKLINIK ||--o{ SERVIS : "barındırır"
-
-    SERVIS ||--o{ HEMSIRE : "görevlendirir"
-
-    LABORATUVAR ||--o{ TAHLIL : "yapar"
-
-    HASTA ||--o{ HASTA_TAHLIL : "verir"
-    DOKTOR ||--o{ HASTA_TAHLIL : "ister"
-    TAHLIL ||--o{ HASTA_TAHLIL : "içerir"
-
-    POLIKLINIK {
-        int Poliklinik_ID PK
-        string Poliklinik_Adi
-    }
-    DOKTOR {
-        int Doktor_ID PK
-        string Ad
-        string Soyad
-        int Poliklinik_ID FK
-    }
-    HASTA {
-        int Hasta_ID PK
-        string Ad
-        string Soyad
-        string TC_Kimlik
-    }
-    %% ARA TABLO 1: Hasta ve Poliklinik Arasında
-    MUAYENE {
-        int Muayene_ID PK
-        int Hasta_ID FK
-        int Poliklinik_ID FK
-        datetime Muayene_Tarihi
-    }
-    LABORATUVAR {
-        int Laboratuvar_ID PK
-        string Laboratuvar_Adi
-    }
-    TAHLIL {
-        int Tahlil_ID PK
-        string Tahlil_Adi
-        int Laboratuvar_ID FK
-    }
-    %% ARA TABLO 2: Hasta, Doktor ve Tahlil Arasında
-    HASTA_TAHLIL {
-        int Islem_ID PK
-        int Hasta_ID FK
-        int Doktor_ID FK
-        int Tahlil_ID FK
-        datetime Istek_Tarihi
-    }
-    SERVIS {
-        int Servis_ID PK
-        string Servis_Adi
-        int Poliklinik_ID FK
-    }
-    HEMSIRE {
-        int Hemsire_ID PK
-        string Ad
         string Soyad
         int Servis_ID FK
     }
