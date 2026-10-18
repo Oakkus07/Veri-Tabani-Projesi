@@ -29,6 +29,4 @@ Bu proje, aşağıdaki ekip üyeleri tarafından tasarlanmış ve geliştirilmi�
 * **Oğuzhan Akkuş** - 455089
 * **Furkan Ağır** - 455085
 
-        string Soyad
-        int Servis_ID FK
-    }
+ 
