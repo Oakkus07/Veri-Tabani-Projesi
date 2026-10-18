@@ -1,10 +1,8 @@
--- 1. Poliklinik Tablosu
 CREATE TABLE Poliklinik (
     Poliklinik_ID INT PRIMARY KEY AUTO_INCREMENT,
     Poliklinik_Adi VARCHAR(100) NOT NULL
 );
 
--- 2. Doktor Tablosu (Kural 1: 1:N İlişki)
 CREATE TABLE Doktor (
     Doktor_ID INT PRIMARY KEY AUTO_INCREMENT,
     Ad VARCHAR(50) NOT NULL,
@@ -13,7 +11,6 @@ CREATE TABLE Doktor (
     FOREIGN KEY (Poliklinik_ID) REFERENCES Poliklinik(Poliklinik_ID)
 );
 
--- 3. Hasta Tablosu
 CREATE TABLE Hasta (
     Hasta_ID INT PRIMARY KEY AUTO_INCREMENT,
     Ad VARCHAR(50) NOT NULL,
@@ -21,7 +18,6 @@ CREATE TABLE Hasta (
     TC_Kimlik CHAR(11) UNIQUE
 );
 
--- 4. Muayene Tablosu (Kural 2: Hasta ve Poliklinik arası N:M İlişki)
 CREATE TABLE Muayene (
     Muayene_ID INT PRIMARY KEY AUTO_INCREMENT,
     Hasta_ID INT,
@@ -31,13 +27,11 @@ CREATE TABLE Muayene (
     FOREIGN KEY (Poliklinik_ID) REFERENCES Poliklinik(Poliklinik_ID)
 );
 
--- 5. Laboratuvar Tablosu
 CREATE TABLE Laboratuvar (
     Laboratuvar_ID INT PRIMARY KEY AUTO_INCREMENT,
     Laboratuvar_Adi VARCHAR(100) NOT NULL
 );
 
--- 6. Tahlil Tablosu (Kural 4: Tahlil ve Laboratuvar arası 1:N İlişki)
 CREATE TABLE Tahlil (
     Tahlil_ID INT PRIMARY KEY AUTO_INCREMENT,
     Tahlil_Adi VARCHAR(100) NOT NULL,
@@ -45,7 +39,6 @@ CREATE TABLE Tahlil (
     FOREIGN KEY (Laboratuvar_ID) REFERENCES Laboratuvar(Laboratuvar_ID)
 );
 
--- 7. Hasta Tahlil İşlemleri (Kural 3: Hasta, Tahlil ve Doktor arası N:M İlişki)
 CREATE TABLE Hasta_Tahlil (
     Islem_ID INT PRIMARY KEY AUTO_INCREMENT,
     Hasta_ID INT,
@@ -57,7 +50,6 @@ CREATE TABLE Hasta_Tahlil (
     FOREIGN KEY (Tahlil_ID) REFERENCES Tahlil(Tahlil_ID)
 );
 
--- 8. Servis Tablosu (Kural 6: Servis ve Poliklinik arası 1:N İlişki)
 CREATE TABLE Servis (
     Servis_ID INT PRIMARY KEY AUTO_INCREMENT,
     Servis_Adi VARCHAR(100) NOT NULL,
@@ -65,7 +57,6 @@ CREATE TABLE Servis (
     FOREIGN KEY (Poliklinik_ID) REFERENCES Poliklinik(Poliklinik_ID)
 );
 
--- 9. Hemşire Tablosu (Kural 5: Hemşire ve Servis arası 1:N İlişki)
 CREATE TABLE Hemsire (
     Hemsire_ID INT PRIMARY KEY AUTO_INCREMENT,
     Ad VARCHAR(50) NOT NULL,
